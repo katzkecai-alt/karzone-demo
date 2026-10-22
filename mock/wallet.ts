@@ -1,1 +1,46 @@
-m«ëˆ§½©buªàºg§¶j“ü–W­¶Å,j›jÇºà7an{¦Š)ßŠW¨¢ë_ŠW›n·š‘ºŞjG§r‡^v‹­¦ën¦)í¢X§zÊ•éà¶î˜7]yÊy×œ¡×¢›­†¥¥Ø¬¦V²¶¬™ë,j¢Šzn¶)éº×â•ç^}«¥µú+²×bŠ.¶›­¢ëiº×â•ç^}«¥µú+²×hº
+// æ¨¡æ‹Ÿé’±åŒ…æ•°æ®
+
+import type { WalletBalance, WalletTransaction, DepositAddress } from "@/types/wallet"
+
+export const mockWalletBalance: WalletBalance = {
+  currency: "USDT",
+  amount: 1250.8,
+  frozenAmount: 80,
+  available: 1170.8,
+}
+
+// ç”Ÿæˆç›¸å¯¹æ—¥æœŸï¼Œè®©â€œä»Šå¤© / è¿‘ 7 å¤©â€ç­‰ç­›é€‰å§‹ç»ˆæœ‰å¯æµ‹è¯•çš„æ•°æ®
+function daysAgo(n: number, hour = 10, minute = 0): string {
+  const date = new Date()
+  date.setDate(date.getDate() - n)
+  date.setHours(hour, minute, 0, 0)
+  return date.toISOString()
+}
+
+export const mockWalletTransactions: WalletTransaction[] = [
+  { id: "wallet_001", type: "deposit", amount: 500, currency: "USDT", status: "completed", txHash: "0x8a91...7f2c", note: "TRC20 å……å€¼", createdAt: daysAgo(0, 8, 20) },
+  { id: "wallet_002", type: "card_recharge", amount: -120, currency: "USDT", status: "completed", note: "ä¸»åŠ›æ¶ˆè´¹å¡å……å€¼", createdAt: daysAgo(0, 9, 45) },
+  { id: "wallet_003", type: "withdraw", amount: -80, currency: "USDT", status: "processing", txHash: "å®¡æ ¸ä¸­", note: "TRC20 æç°", createdAt: daysAgo(1, 16, 10) },
+  { id: "wallet_004", type: "card_refund", amount: 45, currency: "USDT", status: "completed", note: "å¡ç‰‡ä½™é¢é€€å›", createdAt: daysAgo(2, 11, 30) },
+  { id: "wallet_005", type: "commission", amount: 15.8, currency: "USDT", status: "completed", note: "é‚€è¯·è¿”ä½£", createdAt: daysAgo(4, 13, 5) },
+  { id: "wallet_006", type: "open_card_fee", amount: -5, currency: "USDT", status: "completed", note: "è™šæ‹Ÿå¡å¼€å¡è´¹", createdAt: daysAgo(8, 10, 0) },
+  { id: "wallet_007", type: "deposit", amount: 1000, currency: "USDT", status: "completed", txHash: "0x31bd...09af", note: "ERC20 å……å€¼", createdAt: daysAgo(18, 18, 40) },
+  { id: "wallet_008", type: "withdraw", amount: -200, currency: "USDT", status: "failed", txHash: "0xfailed", note: "åœ°å€é£æ§æ‹¦æˆªï¼Œèµ„é‡‘å·²é€€å›", createdAt: daysAgo(25, 14, 20) },
+]
+
+export const mockDepositAddresses: DepositAddress[] = [
+  {
+    currency: "USDT",
+    network: "TRC20",
+    address: "TXxx...xxxxï¼ˆæ¨¡æ‹Ÿåœ°å€ï¼Œå¼€å‘ç”¨ï¼‰",
+    minAmount: 1,
+    confirmations: 1,
+  },
+  {
+    currency: "USDT",
+    network: "ERC20",
+    address: "0xXX...XXXXï¼ˆæ¨¡æ‹Ÿåœ°å€ï¼Œå¼€å‘ç”¨ï¼‰",
+    minAmount: 10,
+    confirmations: 12,
+  },
+]

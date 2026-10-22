@@ -1,1 +1,11 @@
-m«ëˆ§½©buªàºg§¶Ü©zÏìµ«l¶Å,j›jÇºà7an{¦Š)ßŠW¨¢ë_ŠW›n·š‘ºŞjG§r‡^v‹­¦ën¦)í¢X§zÊ•éà¶î˜7]yÊy×œ¡×¢›­†¥¥Ø¬¦V²¶¬™ë,j¢Šzn¶)éº×â•ç^}«¥µú+²×bŠ.¶›­¢ëiº×â•ç^}«¥µú+²×hº
+// ç”¨å¡ç»Ÿè®¡ä¸é£æ§æ•°æ®çš„ç±»å‹å®šä¹‰
+
+export interface CardStats {
+  bin: string              // "all" = å…¨éƒ¨æ±‡æ€»ï¼Œå…¶ä»–å€¼ = æŒ‡å®šå¡BIN
+  totalTransactions: number // æ€»äº¤æ˜“ç¬”æ•°
+  totalSpending: number     // æ€»æ¶ˆè´¹é‡‘é¢ï¼ˆUSDï¼‰
+  successRate: number       // æˆåŠŸç‡ï¼ˆ0â€“100ï¼‰
+  failureRate: number       // å¤±è´¥ç‡ï¼ˆ0â€“100ï¼‰
+  refundRate: number        // é€€æ¬¾ç‡ï¼ˆ0â€“100ï¼‰
+  cancellationRate: number  // æ’¤é”€ç‡ï¼ˆ0â€“100ï¼‰
+}

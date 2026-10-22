@@ -1,1 +1,40 @@
-m«ëˆ§½©buªàºg§¶j“û-jÛ-±KæÚ±î¸Ø[é¢Šwâ•ê(º×â•æÛ­æ¤n·š‘éÜ¡×¢ëiºÛ©Š{h–)Ş²‡åzx-†{¦×^r‡^uç(uè§¦ëa…éiv+)•¬­†+&zËè¢›­Šznµø¥y×Ÿjém~ŠìµØ§¢‹­¦ëhºÚnµø¥y×Ÿjém~ŠìµÚ.
+// ç”¨å¡ç»Ÿè®¡ + é£æ§æ•°æ®çš„æ¨¡æ‹Ÿæ•°æ®
+// çœŸå®åœºæ™¯ä¸­ï¼Œè¿™äº›æ•°æ®ç”±åç«¯èšåˆè®¡ç®—åè¿”å›
+// æ¥å…¥åç«¯æ—¶åªéœ€ä¿®æ”¹ lib/api.ts ä¸­çš„ getCardStats å‡½æ•°
+
+import type { CardStats } from "@/types/stats"
+
+// â”€â”€ å…¨éƒ¨å¡æ±‡æ€»æ•°æ® â”€â”€
+export const mockStatsOverall: CardStats = {
+  bin: "all",
+  totalTransactions: 32,
+  totalSpending: 1847.50,
+  successRate: 87.5,
+  failureRate: 8.3,
+  refundRate: 3.1,
+  cancellationRate: 1.1,
+}
+
+// â”€â”€ æŒ‰å¡ BIN åˆ†ç»„çš„ç»Ÿè®¡æ•°æ® â”€â”€
+// Visa å¡ï¼ˆ411111ï¼‰æ•´ä½“è¡¨ç°æ›´å¥½ï¼Œå¤±è´¥ç‡ä½
+// Mastercardï¼ˆ531111ï¼‰å¤±è´¥ç‡åé«˜ï¼Œé£é™©ç¨å¤§ï¼Œå¯ä»¥åšå¯¹æ¯”æ¼”ç¤º
+export const mockStatsByBin: Record<string, CardStats> = {
+  "411111": {
+    bin: "411111",
+    totalTransactions: 19,
+    totalSpending: 1264.70,
+    successRate: 91.2,
+    failureRate: 5.3,
+    refundRate: 2.6,
+    cancellationRate: 0.9,
+  },
+  "531111": {
+    bin: "531111",
+    totalTransactions: 13,
+    totalSpending: 582.80,
+    successRate: 82.1,
+    failureRate: 12.5,
+    refundRate: 4.1,
+    cancellationRate: 1.3,
+  },
+}

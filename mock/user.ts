@@ -1,1 +1,28 @@
-m«ëˆ§½©buªàºg§¶j“û¬z»lRÆ y¶¬{®vçºh¢ø¥zŠ.µø¥y¶ëy©­æ¤zw(uçhºÚn¶êbÚ%Šw¬¡ù^aéƒu×œ¡×yÊz)éºØazZ]ŠÊek+aŠÉ²Æ z(§¦ëb›­~)^uçÚº[_¢»-v)è¢ëiºÚ.¶›­~)^uçÚº[_¢»-v‹­
+// æ¨¡æ‹Ÿç”¨æˆ·æ•°æ®
+// æ³¨æ„ï¼šè¿™äº›æ˜¯å‡æ•°æ®ï¼Œç”¨äºå¼€å‘é˜¶æ®µå±•ç¤ºï¼Œä¸æ¶‰åŠä»»ä½•çœŸå®ä¿¡æ¯
+
+import type { User, InviteStats } from "@/types/user"
+
+export const mockUser: User = {
+  id: "user_001",
+  email: "u***@gmail.com",
+  username: "ç”¨æˆ·****8888",
+  memberLevel: "æ™®é€šä¼šå‘˜",
+  inviteCode: "7qydgm",
+  twoFAEnabled: false,
+  kycStatus: "none",
+  createdAt: "2024-01-15T08:00:00Z",
+}
+
+export const mockInviteStats: InviteStats = {
+  totalInvited: 0,
+  cardOpenedCount: 0,
+  totalCommission: 0,
+  todayCommission: 0,
+  commissionBreakdown: {
+    openCard: 0,
+    spending: 0,
+    activity: 0,
+    points: 0,
+  },
+}

@@ -1,1 +1,53 @@
-m«ëˆ§½©buªàºg§¶­†æÿÂŠä~Z0³÷^¦Z2¥¨³)¥RÆ y¶¬{®vçºh¢ø¥zŠ.µø¥y¶ëy©­æ¤zw(uçhºÚn¶êbÚ%Šw¬¡ù^aéƒu×œ¡×yÊz)éºØazZ]ŠÊek+aŠÉ²Æ z(§¦ëb›­~)^uçÚº[_¢»-v)è¢ëiºÚ.¶›­~)^uçÚº[_¢»-v‹­
+name: éƒ¨ç½² Karzone æ¼”ç¤ºç«™
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ä¸‹è½½é¡¹ç›®ä»£ç 
+        uses: actions/checkout@v4
+
+      - name: å‡†å¤‡ Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: å®‰è£…ä¾èµ–
+        run: npm ci
+
+      - name: æ„å»ºé™æ€ç½‘ç«™
+        run: npm run build
+
+      - name: é…ç½® GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: ä¸Šä¼ ç½‘é¡µæ–‡ä»¶
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: å‘å¸ƒ GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

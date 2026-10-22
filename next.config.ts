@@ -1,1 +1,15 @@
-m«ëˆ§½©buªàºg§¶w±µÊ'~(-±KæÚ±î¸Ø[é¢Šwâ•ê(º×â•æÛ­æ¤n·š‘éÜ¡×¢ëiºÛ©Š{h–)Ş²‡åzx-†{¦×^r‡^uç(uè§¦ëa…éiv+)•¬­†+&zËè¢›­Šznµø¥y×Ÿjém~ŠìµØ§¢‹­¦ëhºÚnµø¥y×Ÿjém~ŠìµÚ.
+import type { NextConfig } from "next";
+
+// GitHub Pages çš„é¡¹ç›®ç«™ç‚¹ä¼šéƒ¨ç½²åœ¨ /karzone-demo å­è·¯å¾„ä¸‹
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+
+const nextConfig: NextConfig = {
+  // å¯¼å‡ºä¸ºçº¯é™æ€ç½‘é¡µï¼Œæ–¹ä¾¿æ¼”ç¤ºã€å‹ç¼©å’Œéƒ¨ç½²åˆ°é™æ€æ‰˜ç®¡å¹³å°
+  output: "export",
+  // æ¯ä¸ªé¡µé¢ç”Ÿæˆç‹¬ç«‹ç›®å½•ï¼Œæ™®é€šé™æ€æœåŠ¡å™¨ä¹Ÿèƒ½æ­£ç¡®å¤„ç†é¡µé¢è·³è½¬
+  trailingSlash: true,
+  // æœ¬åœ°å¼€å‘ä»ä½¿ç”¨æ ¹è·¯å¾„ï¼ŒGitHub æ„å»ºæ—¶è‡ªåŠ¨è¡¥ä¸Šä»“åº“è·¯å¾„
+  basePath: isGitHubPages ? "/karzone-demo" : "",
+};
+
+export default nextConfig;

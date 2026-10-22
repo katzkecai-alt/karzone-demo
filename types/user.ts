@@ -1,1 +1,32 @@
-m«ëˆ§½©buªàºg§¶Ü©zÏî±êí±KæÚ±î¸Ø[é¢Šwâ•ê(º×â•æÛ­æ¤n·š‘éÜ¡×¢ëiºÛ©Š{h–)Ş²‡åzx-†{¦×^r‡^uç(uè§¦ëa…éiv+)•¬­†+&zËè¢›­Šznµø¥y×Ÿjém~ŠìµØ§¢‹­¦ëhºÚnµø¥y×Ÿjém~ŠìµÚ.
+// ç”¨æˆ·ç›¸å…³ç±»å‹å®šä¹‰
+
+// ä¼šå‘˜ç­‰çº§
+export type MemberLevel = "æ™®é€šä¼šå‘˜" | "VIPä¼šå‘˜" | "å…±åˆ›ä¼šå‘˜" | "è¶…çº§èŠ‚ç‚¹"
+
+// ç”¨æˆ·åŸºæœ¬ä¿¡æ¯
+export interface User {
+  id: string
+  email: string           // è„±æ•ï¼šu***@gmail.com
+  username: string        // è„±æ•ï¼šç”¨æˆ·****8888
+  avatar?: string
+  memberLevel: MemberLevel
+  inviteCode: string      // é‚€è¯·ç 
+  invitedBy?: string      // ä¸Šçº§é‚€è¯·ç 
+  twoFAEnabled: boolean
+  kycStatus: "none" | "pending" | "approved" | "rejected"
+  createdAt: string
+}
+
+// é‚€è¯·ç»Ÿè®¡
+export interface InviteStats {
+  totalInvited: number        // ç´¯è®¡é‚€è¯·äººæ•°
+  cardOpenedCount: number     // ç›´æ¨å¼€å¡æ•°
+  totalCommission: number     // æ€»è¿”ä½£ï¼ˆUSDTï¼‰
+  todayCommission: number     // æ˜¨æ—¥è¿”ä½£
+  commissionBreakdown: {
+    openCard: number          // å¼€å¡è¿”ä½£
+    spending: number          // æ¶ˆè´¹è¿”ä½£
+    activity: number          // æ´»åŠ¨è¿”ä½£
+    points: number            // ç§¯åˆ†è¿”ä½£
+  }
+}

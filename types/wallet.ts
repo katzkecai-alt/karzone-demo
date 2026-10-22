@@ -1,1 +1,42 @@
-m«ëˆ§½©buªàºg§¶Ü©zÏğjY^¶Û±¨m«ë€İ…¹îš(§~)^¢‹­~)^mºŞjFëy©ÊyÚ.¶›­º˜§¶‰bë(~W§‚Øgº`İuç(uç^r‡^Šzn¶^–—b²™ZÊØb²g¬±¨Š)éºØ§¦ë_ŠWyö®–×è®Ë]Šz(ºÚn¶‹­¦ë_ŠWyö®–×è®Ë]¢ë
+// é’±åŒ…ç›¸å…³ç±»å‹å®šä¹‰
+
+// é’±åŒ…ä½™é¢
+export interface WalletBalance {
+  currency: string      // USDT
+  amount: number
+  frozenAmount: number  // å†»ç»“ä¸­çš„é‡‘é¢ï¼ˆå¦‚ï¼šæç°å®¡æ ¸ä¸­ï¼‰
+  available: number     // å¯ç”¨ä½™é¢ = amount - frozenAmount
+}
+
+// å……æå¸æµæ°´ç±»å‹
+export type TransactionType =
+  | "deposit"         // å……å€¼
+  | "withdraw"        // æç°
+  | "card_recharge"   // å‘å¡å……å€¼
+  | "card_refund"     // å¡é€€æ¬¾å›é’±åŒ…
+  | "open_card_fee"   // å¼€å¡æ‰‹ç»­è´¹
+  | "commission"      // è¿”ä½£æ”¶å…¥
+
+// æµæ°´çŠ¶æ€
+export type TransactionStatus = "pending" | "processing" | "completed" | "failed"
+
+// é’±åŒ…æµæ°´è®°å½•
+export interface WalletTransaction {
+  id: string
+  type: TransactionType
+  amount: number        // æ­£æ•°ä¸ºå…¥è´¦ï¼Œè´Ÿæ•°ä¸ºå‡ºè´¦
+  currency: string      // USDT
+  status: TransactionStatus
+  txHash?: string       // åŒºå—é“¾äº¤æ˜“å“ˆå¸Œï¼ˆå……æå¸æ—¶æœ‰ï¼‰
+  note?: string         // å¤‡æ³¨
+  createdAt: string
+}
+
+// å……å€¼åœ°å€
+export interface DepositAddress {
+  currency: string      // USDT
+  network: string       // TRC20 / ERC20
+  address: string       // é’±åŒ…åœ°å€
+  minAmount: number     // æœ€ä½å……å€¼é‡‘é¢
+  confirmations: number // æ‰€éœ€ç¡®è®¤æ•°
+}

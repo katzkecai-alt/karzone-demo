@@ -1,1 +1,20 @@
-m«ëˆ§½©buªàºg§µªiıÆ«vÏâwúZëlÅKæÚ±î¸Ø[é¢Šwâ•ê(º×â•æÛ­æ¤n·š‘éÜ¡×¢ëiºÛ©Š{h–)Ş²‡åzx-†{¦×^r‡^uç(uè§¦ëa…éiv+)•¬­†+&zËè¢›­Šznµø¥y×Ÿjém~ŠìµØ§¢‹­¦ëhºÚnµø¥y×Ÿjém~ŠìµÚ.
+import { CardDetailClient } from "@/components/cards/CardDetailClient"
+import { mockCards } from "@/mock/cards"
+
+// é™æ€æ‰“åŒ…æ—¶æå‰ç”Ÿæˆæ‰€æœ‰æ¨¡æ‹Ÿå¡ç‰‡çš„è¯¦æƒ…é¡µ
+export function generateStaticParams() {
+  return mockCards.map((card) => ({ id: card.id }))
+}
+
+// æ¼”ç¤ºåŒ…ä¸­åªå¼€æ”¾ä¸Šæ–¹å·²ç»ç”Ÿæˆçš„å¡ç‰‡é¡µé¢
+export const dynamicParams = false
+
+// Next.js 16 ä¼šæŠŠåŠ¨æ€è·¯ç”±å‚æ•°ä½œä¸º Promise ä¼ å…¥ï¼Œå¿…é¡»å…ˆç­‰å¾…å®ƒå®Œæˆ
+export default async function CardDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  return <CardDetailClient cardId={id} />
+}

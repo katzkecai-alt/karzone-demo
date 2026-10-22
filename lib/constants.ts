@@ -1,1 +1,30 @@
-m«ëˆ§½©buªàºg§¶X›ıÊ'²Ö§¶ËlRÆ y¶¬{®vçºh¢ø¥zŠ.µø¥y¶ëy©­æ¤zw(uçhºÚn¶êbÚ%Šw¬¡ù^aéƒu×œ¡×yÊz)éºØazZ]ŠÊek+aŠÉ²Æ z(§¦ëb›­~)^uçÚº[_¢»-v)è¢ëiºÚ.¶›­~)^uçÚº[_¢»-v‹­
+// å…¨å±€å¸¸é‡
+// è¿™é‡Œå­˜æ”¾æ•´ä¸ªé¡¹ç›®é€šç”¨çš„å›ºå®šå€¼
+
+// å¹³å°åç§°ï¼ˆå“ç‰Œå·²ç¡®è®¤ä¸º Karzoneï¼‰
+export const PLATFORM_NAME = "Karzone"
+export const PLATFORM_TAGLINE = "æ¬¢è¿ä½¿ç”¨ Karzoneï¼Œæ‚¨çš„ä¸“ä¸šè™šæ‹Ÿä¿¡ç”¨å¡ä¸æ”¯ä»˜ç®¡ç†å¹³å°"
+
+// æ”¯æŒçš„å……å€¼ç½‘ç»œ
+export const SUPPORTED_NETWORKS = [
+  { name: "TRC20", currency: "USDT", confirmations: 1, minAmount: 1 },
+  { name: "ERC20", currency: "USDT", confirmations: 12, minAmount: 10 },
+]
+
+// å¡ç‰‡çŠ¶æ€é¢œè‰²æ˜ å°„ï¼ˆç”¨äº Badge ç»„ä»¶ï¼‰
+export const CARD_STATUS_COLORS = {
+  normal: "bg-emerald-50 text-emerald-600",
+  frozen: "bg-amber-50 text-amber-600",
+  cancelled: "bg-red-50 text-red-600",
+} as const
+
+// äº¤æ˜“çŠ¶æ€é¢œè‰²æ˜ å°„
+export const TX_STATUS_COLORS = {
+  settled: "bg-emerald-50 text-emerald-600",
+  pending: "bg-amber-50 text-amber-600",
+  declined: "bg-red-50 text-red-600",
+  refunded: "bg-blue-50 text-blue-600",
+} as const
+
+// CVV å±•ç¤ºå€’è®¡æ—¶ï¼ˆç§’ï¼‰
+export const CVV_DISPLAY_SECONDS = 30
